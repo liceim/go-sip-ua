@@ -35,6 +35,7 @@ func init() {
 				Port:       4008,
 				Proto:      "RTP/AVP",
 				Format: []*sdp.Format{
+					{Payload: 96, Name "OPUS", ClockRate: 48000}
 					{Payload: 8, Name: "PCMA", ClockRate: 8000},
 					{Payload: 18, Name: "G729", ClockRate: 8000, Params: []string{"annexb=yes"}},
 					{Payload: 106, Name: "telephone-event", ClockRate: 8000, Params: []string{"0-16"}},
@@ -68,6 +69,7 @@ func BuildLocalSdp(host string, port int) string {
 				Port:       port,
 				Proto:      "RTP/AVP",
 				Format: []*sdp.Format{
+					{Payload: 96, Name "OPUS", ClockRate: 48000},
 					{Payload: 0, Name: "PCMU", ClockRate: 8000},
 					{Payload: 8, Name: "PCMA", ClockRate: 8000},
 					//{Payload: 18, Name: "G729", ClockRate: 8000, Params: []string{"annexb=yes"}},
